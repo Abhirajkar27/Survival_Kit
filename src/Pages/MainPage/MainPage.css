@@ -119,6 +119,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 2.1rem */
+  text-align: center;
 }
 .survival_area::placeholder {
   color: var(--Neutral-Light-alpha-70, rgba(255, 255, 255, 0.7));
@@ -128,6 +129,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+  text-align: left;
 }
 
 .survival_area:focus {
