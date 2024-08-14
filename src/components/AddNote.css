@@ -7,7 +7,7 @@
     box-sizing: border-box;
     padding: .7rem;
     position: relative;
-    margin-top: 2.5rem;
+    margin-top: 2.5vh;
     color: var(--Light-Light--70, #BCC9DA);
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: Gilroy;
