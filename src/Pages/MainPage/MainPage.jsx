@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './MainPage.css';
 import SK_box from '../../assets/img/Survival_Box.png';
+import { SK_Context } from '../../context/context';
 
 const MainPage = (props) => {
+  const { survivalAns, handleInput_SK} = useContext(SK_Context);
+
   return (
     <div className='SK_MainPage'>
       Hi MainPage
@@ -24,7 +27,12 @@ const MainPage = (props) => {
           </div>
         </div>
       </div>
-      <textarea style={{resize:"none"}} className="survival_area" placeholder='Enter Emojis'></textarea>
+      <textarea style={{resize:"none"}} 
+      className="survival_area" 
+      placeholder='Enter Emojis'
+      value={survivalAns}
+      onChange={handleInput_SK}
+      ></textarea>
       <button onClick={props.onforw} className='forw_main_btn'><span>Next</span></button>
     </div>
   )

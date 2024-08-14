@@ -5,14 +5,14 @@ import { SK_Context } from '../../context/context';
 import SK_box from '../../assets/img/Survival_Box.png';
 
 const SendPage = (props) => {
-    const { noteTextareaValue, setNoteTextareaValue } = useContext(SK_Context);
+    const { noteTextareaValue, setNoteTextareaValue, survivalAns } = useContext(SK_Context);
     return (
         <div className='send-pg_SK'>
             <div className='survival_box_SP'>
                 <img src={SK_box} />
                 <div>
                     <div className="sk_boxhead_SP">Survival Kit ⛑️</div>
-
+                    <div>{survivalAns}</div>
                 </div>
             </div>
             <svg className="SK_bk_Btn" onClick={props.onClose} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
