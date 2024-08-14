@@ -97,8 +97,9 @@
 }
 
 .survival_area {
-  width: 19.9375rem;
-  height: 5.0625rem;
+  width: 90vw;
+  /* height: 5.0625rem; */
+  height: 10.2vh;
   flex-shrink: 0;
   border-radius: var(--large, 0.75rem);
   border: 1px solid var(--Dark-Dark--100, #0e1928);
