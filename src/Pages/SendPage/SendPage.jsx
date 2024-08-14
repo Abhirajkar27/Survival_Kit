@@ -5,39 +5,46 @@ import { SK_Context } from '../../context/context';
 import SK_box from '../../assets/img/Survival_Box.png';
 
 const SendPage = (props) => {
-    const { noteTextareaValue, setNoteTextareaValue, survivalAns } = useContext(SK_Context);
+    const { noteTextareaValue, setNoteTextareaValue, survivalAns, survivalQues,
+        survivalPlace,} = useContext(SK_Context);
 
     async function handleForwarsActivity() {
         const data = {
-          reqD: [
-            { SKEmojie: survivalAns,
-             }
-          ],
-          message: noteTextareaValue,
+            type: 'SurvivalKit',
+            SKdata: {
+                reqD: [
+                    {
+                        SKEmoji: survivalAns,
+                        SKQues: survivalQues,
+                        SKPlace: survivalPlace,
+                    }
+                ],
+                message: noteTextareaValue,
+            }
         };
         console.log("Sending Data",JSON.stringify(data));
-        // try {
-        //   const response = await fetch('https://vyld-cb-dev-api.vyld.io/api/v1/activity-games/game', {
-        //     // mode: 'no-cors',
-        //     method: 'POST',
-        //     headers: {
-        //       'Content-Type': 'application/json'
-        //     },
-        //     body:JSON.stringify(data),
-        //   });
-        //   //  console.log("response", response);
-        //   if (response.ok) {
-        //     const responseData = await response.json();
-        //     console.log("data",responseData );
-        //     const activityId = responseData.data.activityId; 
-        //     console.log('Activity ID:', activityId);
-        //     props.setActivityId(activityId);
-        //   } else {
-        //     console.error('Failed to send data', response.statusText);
-        //   }
-        // } catch (error) {
-        //   console.error('Error:', error);
-        // }
+        try {
+          const response = await fetch('https://vyld-cb-dev-api.vyld.io/api/v1/activity-games/game', {
+            // mode: 'no-cors',
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(data),
+          });
+          //  console.log("response", response);
+          if (response.ok) {
+            const responseData = await response.json();
+            console.log("data",responseData );
+            const activityId = responseData.data.activityId; 
+            console.log('Activity ID:', activityId);
+            props.setActivityId(activityId);
+          } else {
+            console.error('Failed to send data', response.statusText);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
         props.onforw();
       }
 

@@ -17,7 +17,7 @@ function App() {
       content = <MainPage onClose={() => { setIndex(null); }} onforw={() => { setIndex(1); }} />;
       break;
     case 1:
-      content = <SendPage onClose={() => { setIndex(0); }} onforw={() => { setIndex(2); }} />;
+      content = <SendPage  setActivityId={setActivityId} onClose={() => { setIndex(0); }} onforw={() => { setIndex(2); }} />;
       break;
       case 2:
         content = <Disclosure activityId={activityId}/>;

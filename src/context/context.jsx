@@ -5,6 +5,8 @@ const SK_Context = createContext();
 const SK_Provider = ({ children }) => {
     const [noteTextareaValue, setNoteTextareaValue] = useState('');
     const [survivalAns, setSurvivalAns] = useState('');
+    const [survivalQues, setSurvivalQues] = useState('What would you carry with you if you get stranded at a');
+    const [survivalPlace, setSurvivalPlace] = useState('Deserted Island');
 
 
     function handleInput_SK(event) {
@@ -25,6 +27,8 @@ const SK_Provider = ({ children }) => {
             value={{
                 noteTextareaValue,setNoteTextareaValue,
                 survivalAns,setSurvivalAns,
+                survivalQues, setSurvivalQues,
+                survivalPlace, setSurvivalPlace,
                 handleInput_SK,
             }}
         >

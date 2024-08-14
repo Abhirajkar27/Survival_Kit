@@ -4,7 +4,8 @@ import SK_box from '../../assets/img/Survival_Box.png';
 import { SK_Context } from '../../context/context';
 
 const MainPage = (props) => {
-  const { survivalAns, handleInput_SK } = useContext(SK_Context);
+  const { survivalAns, handleInput_SK, survivalQues, 
+    survivalPlace,  } = useContext(SK_Context);
 
   return (
     <div className='SK_MainPage'>
@@ -15,8 +16,8 @@ const MainPage = (props) => {
         <img src={SK_box} />
         <div>
           <div className="sk_boxhead">Survival Kit ⛑️</div>
-          <div className="sk_boxsubhead">What would you carry with you if you get stranded at a</div>
-          <div className='Sk_topic'>Deserted Island</div>
+          <div className="sk_boxsubhead">{survivalQues}</div>
+          <div className='Sk_topic'>{survivalPlace}</div>
           <div className='newSelectbtn_SK'>
             <svg className='newSelectIcon_SK' xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
               <path d="M14.7926 10.9428C14.6684 10.8788 14.5256 10.8608 14.3893 10.8917C14.2531 10.9227 14.1321 11.0007 14.0477 11.1121C13.9633 11.2234 13.9209 11.361 13.9279 11.5005C13.9349 11.64 13.9909 11.7726 14.086 11.875L14.9529 12.5221H12.7798C12.1799 12.5163 11.5889 12.3768 11.0497 12.1139C10.5105 11.851 10.0366 11.4712 9.66259 11.0021C9.60918 10.9448 9.54501 10.8986 9.47373 10.8661C9.40245 10.8336 9.32547 10.8154 9.24718 10.8127C9.08906 10.8071 8.93521 10.8646 8.81947 10.9725C8.70373 11.0803 8.63558 11.2298 8.63001 11.3879C8.62444 11.546 8.68191 11.6998 8.78978 11.8156C9.27447 12.4187 9.88961 12.9041 10.5889 13.2353C11.2883 13.5664 12.0536 13.7347 12.8273 13.7275H14.9529L14.086 14.3746C13.9733 14.4729 13.9018 14.61 13.8858 14.7587C13.8698 14.9074 13.9105 15.0566 13.9997 15.1766C14.089 15.2966 14.2202 15.3785 14.3672 15.4059C14.5141 15.4334 14.6661 15.4043 14.7926 15.3246L17.1023 13.6087C17.176 13.5534 17.2359 13.4817 17.2771 13.3992C17.3183 13.3168 17.3398 13.2259 17.3398 13.1337C17.3398 13.0415 17.3183 12.9506 17.2771 12.8682C17.2359 12.7857 17.176 12.714 17.1023 12.6587L14.7926 10.9428Z" fill="#0E1928" />
