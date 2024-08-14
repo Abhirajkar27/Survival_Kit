@@ -106,6 +106,18 @@
   box-sizing: border-box;
   padding: 1.3vh;
   margin-top: 1vh;
+  color: var(--info-Error, #FF5372);
+  font-feature-settings: "liga" off, "clig" off;
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: var(
+    --Neutral-Light-alpha-50,
+    rgba(255, 255, 255, 0.5)
+  );
+  font-family: "Nice Tango";
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 2.1rem */
 }
 .survival_area::placeholder {
   color: var(--Neutral-Light-alpha-70, rgba(255, 255, 255, 0.7));
@@ -154,5 +166,5 @@
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 100%; 
+  line-height: 100%;
 }
