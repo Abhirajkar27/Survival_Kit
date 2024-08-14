@@ -25,7 +25,7 @@ const MainPage = (props) => {
         </div>
       </div>
       <textarea style={{resize:"none"}} className="survival_area" placeholder='Enter Emojis'></textarea>
-      <button className='forw_main_btn'><span>Next</span></button>
+      <button onClick={props.onforw} className='forw_main_btn'><span>Next</span></button>
     </div>
   )
 }
