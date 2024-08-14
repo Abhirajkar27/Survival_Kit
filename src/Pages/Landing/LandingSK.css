@@ -1,0 +1,64 @@
+.landing-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--Dark-Dark--100, #0E1928), #FF8AFB);
+  color: #BEF229;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+.landing-title {
+  font-size: 3rem;
+  color: #FF8AFB;
+  margin-bottom: 10px;
+  text-shadow: 3px 3px #B21A35;
+}
+
+.landing-subtitle {
+  font-size: 1.5rem;
+  color: var(--Accent-color-Acc-06, #BEF229);
+  margin-bottom: 30px;
+  text-shadow: 2px 2px #B21A35;
+}
+
+.landing-button {
+  position: absolute;
+  bottom: 10vh;
+}
+
+.landing-button button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: #0E1928;
+  background-color: #FF8AFB;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.landing-button button:hover {
+  transform: scale(1.1);
+  background-color: #BEF229;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .landing-title {
+    font-size: 2.5rem;
+  }
+
+  .landing-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .landing-button button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
