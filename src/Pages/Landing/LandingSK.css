@@ -33,12 +33,14 @@
 .landing-button button {
   padding: 15px 30px;
   font-size: 1.2rem;
-  color: #0E1928;
-  background-color: #FF8AFB;
+  color: #032925;
+  background-color: #9c4799;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
+  width: 50vw;
+  
 }
 
 .landing-button button:hover {

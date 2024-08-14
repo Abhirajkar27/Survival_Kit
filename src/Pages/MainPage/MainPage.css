@@ -160,6 +160,7 @@
   background: var(--Primary-Primary-100, #c6ff00);
   position: fixed;
   bottom: 3.7vh;
+  border: 0px;
 }
 .forw_main_btn span {
   color: var(--Neutral-Rich-Dark, #090909);
