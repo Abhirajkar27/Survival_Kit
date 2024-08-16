@@ -28,15 +28,26 @@ const MainPage = (props) => {
 
   const handleDeleteClick = () => {
     const regex = emojiRegex();
-    const result = [...survivalAns.matchAll(regex)];
-    
-    if (result.length) {
-      const lastEmojiIndex = result[result.length - 1].index;
-      setSurvivalAns(survivalAns.slice(0, lastEmojiIndex));
-    } else {
+    const trimmedInput = survivalAns.trimEnd(); // Remove trailing spaces
+  
+    // Check if the last character is a space
+    if (survivalAns.endsWith(' ')) {
+      // Remove the trailing space
       setSurvivalAns(prev => prev.slice(0, -1));
+    } else {
+      // Remove last emoji if present
+      const result = [...trimmedInput.matchAll(regex)];
+      
+      if (result.length) {
+        const lastEmojiIndex = result[result.length - 1].index;
+        setSurvivalAns(trimmedInput.slice(0, lastEmojiIndex));
+      } else {
+        // If no emojis are present, remove the last character
+        setSurvivalAns(prev => prev.slice(0, -1));
+      }
     }
   };
+  
 
   useEffect(() => {
     const handleClickOutside = (event) => {
