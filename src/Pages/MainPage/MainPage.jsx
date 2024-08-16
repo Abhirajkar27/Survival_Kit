@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import './MainPage.css';
 import SK_box from '../../assets/img/Survival_Box.png';
 import { SK_Context } from '../../context/context';
@@ -6,9 +6,11 @@ import EmojiKeyboard from '../../components/Keyboard';
 
 const MainPage = (props) => {
   const { survivalAns, handleInput_SK, survivalQues,
-    survivalPlace,setSurvivalAns } = useContext(SK_Context);
+    survivalPlace, setSurvivalAns } = useContext(SK_Context);
 
   const [showKeyboard, setShowKeyboard] = useState(false);
+  const textareaRef = useRef(null);
+  const keyboardRef = useRef(null);
 
   const handleTextareaClick = () => {
     setShowKeyboard(true);
@@ -25,6 +27,25 @@ const MainPage = (props) => {
   const handleDeleteClick = () => {
     setSurvivalAns(prev => prev.slice(0, -1));
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        keyboardRef.current &&
+        !keyboardRef.current.contains(event.target) &&
+        textareaRef.current &&
+        !textareaRef.current.contains(event.target)
+      ) {
+        setShowKeyboard(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
 
   return (
     <div className='SK_MainPage'>
@@ -47,6 +68,7 @@ const MainPage = (props) => {
         </div>
       </div>
       <textarea style={{ resize: "none" }}
+        ref={textareaRef}
         className="survival_area"
         placeholder='Enter Emojis'
         value={survivalAns}
@@ -56,6 +78,7 @@ const MainPage = (props) => {
       ></textarea>
       {showKeyboard && (
         <EmojiKeyboard
+          refr={keyboardRef}
           onEmojiClick={handleEmojiClick}
           onSpaceClick={handleSpaceClick}
           onDeleteClick={handleDeleteClick}
