@@ -17,10 +17,6 @@ const MainPage = (props) => {
     setShowKeyboard(true);
   };
 
-  const handleEmojiClick = (emoji) => {
-    setSurvivalAns(prev => prev + emoji);
-  };
-
   const handleSpaceClick = () => {
     setSurvivalAns(prev => prev + ' ');
   };
@@ -81,14 +77,13 @@ const MainPage = (props) => {
         className="survival_area"
         placeholder='Enter Emojis'
         value={survivalAns}
-        // onChange={handleInput_SK}
         onClick={handleTextareaClick}
         readOnly
       ></textarea>
       {showKeyboard && (
         <EmojiKeyboard
           refr={keyboardRef}
-          onEmojiClick={handleEmojiClick}
+          onEmojiClick={handleInput_SK}
           onSpaceClick={handleSpaceClick}
           onDeleteClick={handleDeleteClick}
         />
