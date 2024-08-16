@@ -46,16 +46,16 @@ const SK_Provider = ({ children }) => {
 
 
     function handleInput_SK(value) {
-        // let value = event.target.value;
-        if (value.length > 26) {
-            value = value.slice(0, 26);
+        if (survivalAns.length < 26) {
+            if (value.length > 26) {
+                value = value.slice(0, 26);
+            }
+            const lineCount = value.split('\n').length;
+            if (lineCount <= 4) {
+                const trimmedValue = value.replace(/^\s+/g, '');
+                setSurvivalAns(prev => prev + trimmedValue);
+            }
         }
-        const lineCount = value.split('\n').length;
-        if (lineCount <= 4) {
-            const trimmedValue = value.replace(/^\s+/g, '');
-            setSurvivalAns(prev => prev + trimmedValue);
-        }
-
     }
 
     return (
