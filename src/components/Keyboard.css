@@ -39,18 +39,19 @@
 }
 .special-btn_EK {
   position: absolute;
-  bottom: 0.1vh;
+  bottom: 0;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
-  background-color: #161716;
+  background-color: var(--Dark-Dark--100, #0e1928);;
+  height: 6.5vh;
+  border-radius: 10px;
 }
 
 .control-button {
   font-size: 18px;
   background-color: #ccc;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
   margin: 0 5px;
 }
