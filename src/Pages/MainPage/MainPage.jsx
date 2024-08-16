@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import emojiRegex from 'emoji-regex';
 import './MainPage.css';
 import SK_box from '../../assets/img/Survival_Box.png';
 import { SK_Context } from '../../context/context';
@@ -25,7 +26,15 @@ const MainPage = (props) => {
   };
 
   const handleDeleteClick = () => {
-    setSurvivalAns(prev => prev.slice(0, -1));
+    const regex = emojiRegex();
+    const result = [...survivalAns.matchAll(regex)];
+    
+    if (result.length) {
+      const lastEmojiIndex = result[result.length - 1].index;
+      setSurvivalAns(survivalAns.slice(0, lastEmojiIndex));
+    } else {
+      setSurvivalAns(prev => prev.slice(0, -1));
+    }
   };
 
   useEffect(() => {
