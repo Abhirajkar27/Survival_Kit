@@ -18,7 +18,12 @@ const MainPage = (props) => {
   };
 
   const handleSpaceClick = () => {
-    setSurvivalAns(prev => prev + ' ');
+    if(survivalAns.length===0){
+      console.log("can not enter text at starting")
+    }
+    else{
+      setSurvivalAns(prev => prev + ' ');
+    }
   };
 
   const handleDeleteClick = () => {
