@@ -1,50 +1,83 @@
 .emoji-keyboard {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 40vh;
-    background-color: #161716;
-    /* border-top: 1px solid #000; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* font-family: "Noto Color Emoji"; */
-  }
-  
-  .emoji-list {
-    overflow-y: auto;
-    display: flex;
-    flex-wrap: wrap;
-    /* padding: 10px; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* font-family: "Noto Color Emoji"; */
-  }
-  
-  .emoji-button {
-    font-size: 2rem;
-    padding: 10px;
-    margin: 5px;
-    background: none;
-    border: none;
-    font-family: "Noto Color Emoji";
-    cursor: pointer;
-  }
-  
-  .keyboard-controls {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    border-top: 1px solid #000;
-  }
-  
-  .control-button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #ccc;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40vh;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Noto Color Emoji";
+}
+
+.emoji-list {
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex: 1; /* Take available space */
+  font-family: "Noto Color Emoji";
+}
+
+.emoji-button {
+  font-size: 2rem;
+  padding: 10px;
+  margin: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Noto Color Emoji";
+}
+
+.keyboard-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #000;
+}
+.special-btn_EK {
+  position: absolute;
+  bottom: 0.1vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #161716;
+}
+
+.control-button {
+  font-size: 18px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+.space_EK {
+  display: flex;
+  width: 43vw;
+  height: 5.5vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.375rem;
+  background: var(--Dark-Dark--50, #79889d);
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.27);
+  color: #fff;
+}
+.delete_EK {
+  display: flex;
+  width: 7vh;
+  height: 5.5vh;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.375rem;
+  background: var(--Dark-Dark--50, #79889d);
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.27);
+}
+
+.control-icon {
+  font-size: 1.5rem;
+  display: inline-block;
+}
