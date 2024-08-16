@@ -1,11 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './MainPage.css';
 import SK_box from '../../assets/img/Survival_Box.png';
 import { SK_Context } from '../../context/context';
+import EmojiKeyboard from '../../components/Keyboard';
 
 const MainPage = (props) => {
-  const { survivalAns, handleInput_SK, survivalQues, 
-    survivalPlace,  } = useContext(SK_Context);
+  const { survivalAns, handleInput_SK, survivalQues,
+    survivalPlace,setSurvivalAns } = useContext(SK_Context);
+
+  const [showKeyboard, setShowKeyboard] = useState(false);
+
+  const handleTextareaClick = () => {
+    setShowKeyboard(true);
+  };
+
+  const handleEmojiClick = (emoji) => {
+    setSurvivalAns(prev => prev + emoji);
+  };
+
+  const handleSpaceClick = () => {
+    setSurvivalAns(prev => prev + ' ');
+  };
+
+  const handleDeleteClick = () => {
+    setSurvivalAns(prev => prev.slice(0, -1));
+  };
 
   return (
     <div className='SK_MainPage'>
@@ -31,9 +50,18 @@ const MainPage = (props) => {
         className="survival_area"
         placeholder='Enter Emojis'
         value={survivalAns}
-        onChange={handleInput_SK}
+        // onChange={handleInput_SK}
+        onClick={handleTextareaClick}
+        readOnly
       ></textarea>
-      <button onClick={survivalAns ? props.onforw:null} className='forw_main_btn'><span style={{ opacity: survivalAns ? '1' : '.3' }}>Next</span></button>
+      {showKeyboard && (
+        <EmojiKeyboard
+          onEmojiClick={handleEmojiClick}
+          onSpaceClick={handleSpaceClick}
+          onDeleteClick={handleDeleteClick}
+        />
+      )}
+      <button onClick={survivalAns ? props.onforw : null} className='forw_main_btn'><span style={{ opacity: survivalAns ? '1' : '.3' }}>Next</span></button>
     </div>
   )
 }
