@@ -93,7 +93,7 @@ const MainPage = (props) => {
           onDeleteClick={handleDeleteClick}
         />
       )}
-      <button onClick={survivalAns ? props.onforw : null} className='forw_main_btn'><span style={{ opacity: survivalAns ? '1' : '.3' }}>Next</span></button>
+      {!showKeyboard && <button onClick={survivalAns ? props.onforw : null} className='forw_main_btn'><span style={{ opacity: survivalAns ? '1' : '.3' }}>Next</span></button>}
     </div>
   )
 }
