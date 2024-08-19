@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import axios from "axios";
 
 const SK_Context = createContext();
 
@@ -29,21 +30,23 @@ const SK_Provider = ({ children }) => {
             "🐔", "🐓", "🐣", "🐤", "🐥", "🐦", "🐧", "🕊️", "🦅", "🦆",
             "🦢", "🦉", "🦤", "🦩", "🦚", "🦜", "🪽", "🐸", "🐊", "🐢"]);
 
-    // useEffect(() => {
-    //     const fetchEmojis = async () => {
-    //         try {
-    //             const response = await fetch('https://media-store.vyld.io/dev/assets/emojisGrouped.json', { mode: 'no-cors' });
-    //             const apiResponse = await response.json();
-    //             console.log(apiResponse);
-    //             const extractedEmojis = apiResponse.map(item => item.emojis[0].char);
-    //             setEmoji(extractedEmojis);
-    //         } catch (error) {
-    //             console.error('Error fetching emojis:', error);
-    //         }
-    //     };
-    //     fetchEmojis(); 
-    // }, []);
+    useEffect(() => {
+        const fetchEmojis = async () => {
+            try {
+                const response = await fetch('https://media-store.vyld.io/dev/assets/emojisGrouped.json')
+                const apiResponse = response;
+                console.log("hey",apiResponse);
+                // const extractedEmojis = apiResponse.map(item => item.emojis[0].char);
+                // setEmoji(extractedEmojis);
 
+             
+            } catch (error) {
+                console.error('Error fetching emojis:', error);
+            }
+        };
+
+        fetchEmojis();
+    }, []);
 
     function handleInput_SK(value) {
         if (survivalAns.length < 26) {
@@ -53,7 +56,7 @@ const SK_Provider = ({ children }) => {
             // const lineCount = value.split('\n').length;
             // if (lineCount <= 4) {
             //     const trimmedValue = value.replace(/^\s+/g, '');
-                setSurvivalAns(prev => prev + value);
+            setSurvivalAns(prev => prev + value);
             // }
         }
     }
