@@ -30,23 +30,23 @@ const SK_Provider = ({ children }) => {
             "🐔", "🐓", "🐣", "🐤", "🐥", "🐦", "🐧", "🕊️", "🦅", "🦆",
             "🦢", "🦉", "🦤", "🦩", "🦚", "🦜", "🪽", "🐸", "🐊", "🐢"]);
 
-    useEffect(() => {
-        const fetchEmojis = async () => {
-            try {
-                const response = await fetch('https://media-store.vyld.io/dev/assets/emojisGrouped.json')
-                const apiResponse = response;
-                console.log("hey",apiResponse);
-                // const extractedEmojis = apiResponse.map(item => item.emojis[0].char);
-                // setEmoji(extractedEmojis);
+    // useEffect(() => {
+    //     const fetchEmojis = async () => {
+    //         try {
+    //             const response = await fetch('https://media-store.vyld.io/dev/assets/emojisGrouped.json')
+    //             const apiResponse = response;
+    //             console.log("hey",apiResponse);
+    //             const extractedEmojis = apiResponse.map(item => item.emojis[0].char);
+    //             setEmoji(extractedEmojis);
 
              
-            } catch (error) {
-                console.error('Error fetching emojis:', error);
-            }
-        };
+    //         } catch (error) {
+    //             console.error('Error fetching emojis:', error);
+    //         }
+    //     };
 
-        fetchEmojis();
-    }, []);
+    //     fetchEmojis();
+    // }, []);
 
     function handleInput_SK(value) {
         if (survivalAns.length < 26) {
